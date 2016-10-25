@@ -4,6 +4,7 @@ import cat.iesjoaquimmir.geoapp.model.businesslayer.entities.Square.Square;
 import cat.iesjoaquimmir.geoapp.model.businesslayer.entities.rectangle.rectangle;
 import cat.iesjoaquimmir.geoapp.model.businesslayer.entities.Cercle.Cercle;
 import cat.iesjoaquimmir.geoapp.model.businesslayer.entities.Esfera.Esfera;
+import cat.iesjoaquimmir.geoapp.model.businesslayer.entities.Color.Color;
 import java.util.Scanner;
 public class Application {
     public static void main(String[] args) {
@@ -16,7 +17,9 @@ public class Application {
        System.out.printf("3.Cercle %n");
        System.out.printf("4.Esfera %n");
        System.out.printf("5.Rectangle (amb sobrecarrega) %n");
-       System.out.printf("6.Surt %n");
+       System.out.printf("6.Color hexadecimal %n");
+       System.out.printf("7.Color RGB aleatori %n");
+       System.out.printf("8.Surt %n");
        System.out.printf("Quina figura vols? %n");
        opcio = entrada.nextInt();   
        switch (opcio) {
@@ -36,16 +39,29 @@ public class Application {
         case 5:
         rectangle1();
         break;
+        case 6:
+        color();
+        case 7:
+        colorRandom();
+        break;
  }
-       }while(opcio!=6);
-       
-     
-       
-       
-       
-       
-       
+       }while(opcio!=8);  
     }
+  private static void colorRandom(){
+      Color co3 = Color.getRandom();
+      System.out.printf("%d %d %d %n%n%n",co3.getRed(),co3.getGreen(),co3.getBlue()); 
+  }
+  private static void color(){
+      String colorR=null;
+      Scanner entrada=new Scanner(System.in);
+      Color co1 = new Color (125,125,125);
+      System.out.printf("Color hexadecimal:");
+      colorR = entrada.next();
+      Color co2 = Color.fromHexString(colorR);
+      System.out.printf("r: %d g: %d b:%d %n", co2.getRed(),co2.getGreen(),co2.getBlue());
+        
+  }
+    
  private static void quadrat(){
       double cuadrat=0;
       Scanner entrada=new Scanner(System.in);

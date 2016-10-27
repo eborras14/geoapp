@@ -73,20 +73,23 @@ public class Application {
  private static void quadrat(){
       double cuadrat=0;
       Scanner entrada=new Scanner(System.in);
-      Square c1 = new Square (1.0);
+      
       System.out.printf("Has escullit el quadrat!!%n");
       System.out.printf("Digues el seu costat:");
         
-        cuadrat = entrada.nextDouble();
-        
-      
-          c1.setLado(cuadrat);
+         cuadrat = entrada.nextDouble();
+         Square c1 = new Square (cuadrat);
+         Square c1_sobrecarrega = new Square ();
+         
           System.out.printf("Area quadrat:%.2f%n",c1.getArea());
           System.out.printf("Perimetre quadrat:%.2f%n",c1.getPerimetre());
+           System.out.printf("<-----S O B R E C A R R E G A ---->%n");
+          System.out.printf("Area quadrat:%.2f%n",c1_sobrecarrega.getArea());
+          System.out.printf("Perimetre quadrat:%.2f%n",c1_sobrecarrega.getPerimetre());
  }
  private static void rectangle(){
      Scanner entrada=new Scanner(System.in);
-     rectangle b1 = new rectangle (1.0,1.0);
+     
      double rectangleBase=0;
      double rectangleAltura=0;
      System.out.printf("Has escullit el Rectangle!!%n");
@@ -98,50 +101,59 @@ public class Application {
         do{
         rectangleAltura = entrada.nextDouble();
         }while(rectangleAltura<=0);
-        b1.setBase(rectangleBase);
-        b1.setAltura(rectangleAltura);
+        rectangle b1 = new rectangle (rectangleBase,rectangleAltura);
             System.out.printf("Area rectangle:%.2f%n",b1.getArea());
             System.out.printf("Perimetre rectangle:%.2f%n",b1.getPerimetre());
+            rectangle b1_s = new rectangle ();
+            System.out.printf("<-----S O B R E C A R R E G A ---->%n");
+            System.out.printf("Area quadrat:%.2f%n",b1_s.getArea());
+            System.out.printf("Perimetre quadrat:%.2f%n",b1_s.getPerimetre());
  }
   private static void rectangle1(){
      Scanner entrada=new Scanner(System.in);
-     rectangle b1 = new rectangle (1.0);
+     
      double rectangleBase=0;
      double rectangleAltura=0;
      System.out.printf("Has escullit el Rectangle amb sobrecarrega!!%n");
         System.out.printf("Digues la seva base:");
        
         rectangleBase = entrada.nextDouble();
-        
-        b1.setBase(rectangleBase);
+        rectangle b1 = new rectangle (rectangleBase);
+       
             System.out.printf("Area rectangle:%.2f%n",b1.getArea());
             System.out.printf("Perimetre rectangle:%.2f%n",b1.getPerimetre());
  }
  private static void cercle(){
    double cercleRadi=0;
-   Cercle a1 = new Cercle (1.0);
+   
    Scanner entrada=new Scanner(System.in);
    System.out.printf("Has escullit el Cercle!!%n");
         System.out.printf("Digues el seu radi:");
         
         cercleRadi = entrada.nextDouble();
-     
-        a1.setRadio(cercleRadi);
+        Cercle a1 = new Cercle (cercleRadi);
+        Cercle a1_s = new Cercle (cercleRadi);
             System.out.printf("Area cercle:%.2f%n",a1.getArea());
-            System.out.printf("Perimetre cercle:%.2f%n",a1.getPerimetre());  
+            System.out.printf("Perimetre cercle:%.2f%n",a1.getPerimetre());
+            
+            System.out.printf("<-----S O B R E C A R R E G A ---->%n");
+            System.out.printf("Area quadrat:%.2f%n",a1_s.getArea());
+            System.out.printf("Perimetre quadrat:%.2f%n",a1_s.getPerimetre());
  }
   private static void esfera(){
     double esferaRadi=0;
        Scanner entrada=new Scanner(System.in);
-       Esfera d1 = new Esfera (1.0);
     System.out.printf("Has escullit l'Esfera!!%n");
         System.out.printf("Digues el seu radi:");
        
         esferaRadi = entrada.nextDouble();
-        
-        d1.setRadio(esferaRadi);
+        Esfera d1 = new Esfera (esferaRadi);
+        Esfera d1_s = new Esfera ();
             System.out.printf("Area esfera:%.2f%n",d1.getArea());
-            System.out.printf("Perimetre esfera:%.2f%n",d1.getPerimetre());  
+            System.out.printf("Perimetre esfera:%.2f%n",d1.getPerimetre()); 
+            System.out.printf("<-----S O B R E C A R R E G A ---->%n");
+            System.out.printf("Area esfera:%.2f%n",d1_s.getArea());
+            System.out.printf("Perimetre esfera:%.2f%n",d1_s.getPerimetre());
   }
     
 }

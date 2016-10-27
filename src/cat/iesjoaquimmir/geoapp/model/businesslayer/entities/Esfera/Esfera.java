@@ -4,7 +4,7 @@ package cat.iesjoaquimmir.geoapp.model.businesslayer.entities.Esfera;
 public class Esfera {
        //<editor-fold defaultstate="collapsed" desc="Estat:Atributs">
     private double radio;
-    
+    public static final double valor_def=1.0;
 //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Comportament:Metodes">
     //<editor-fold defaultstate="collapsed" desc="getters/setters">
@@ -29,6 +29,9 @@ public class Esfera {
     //<editor-fold defaultstate="collapsed" desc="Constructores">
     public Esfera (double radio){
         this.setRadio(radio);
+    }
+    public Esfera (){
+        this(valor_def);
     }
     
 //</editor-fold>

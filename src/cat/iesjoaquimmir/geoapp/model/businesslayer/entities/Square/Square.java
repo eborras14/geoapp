@@ -4,7 +4,7 @@ package cat.iesjoaquimmir.geoapp.model.businesslayer.entities.Square;
 public class Square  {
     //<editor-fold defaultstate="collapsed" desc="Estat:Atributs">
     private double lado;
-    
+    public static final double valor_def=1.0;
 //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Comportament:Metodes">
     //<editor-fold defaultstate="collapsed" desc="getters/setters">
@@ -26,6 +26,10 @@ public class Square  {
     public Square (double lado){
         this.setLado(lado);
     }
+    public Square (){
+        this(valor_def);
+    }
+    
     
 //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Operacions d'objecte">
@@ -35,6 +39,7 @@ public class Square  {
      public double getPerimetre(){
         return 4*getLado();
     }
+ 
 //</editor-fold>
 //</editor-fold>
 

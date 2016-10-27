@@ -92,7 +92,7 @@ public class Color {
         return String.format(upper ? "RGB(%03d,%03d,%03d)" :  "rgb(%03d,%03d,%03d)", getRed(), getGreen(), getBlue());
     }
     public String toRGBString(){
-        return toRGBString(true);
+        return toRGBString(false);
     }
 //</editor-fold>
 //</editor-fold>

@@ -5,7 +5,7 @@ package cat.iesjoaquimmir.geoapp.model.businesslayer.entities.Cercle;
 public class Cercle {
        //<editor-fold defaultstate="collapsed" desc="Estat:Atributs">
     private double radio;
-    
+    public static final double valor_def=1.0;
 //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Comportament:Metodes">
     //<editor-fold defaultstate="collapsed" desc="getters/setters">
@@ -26,6 +26,9 @@ public class Cercle {
     //<editor-fold defaultstate="collapsed" desc="Constructores">
     public Cercle (double radio){
         this.setRadio(radio);
+    }
+    public Cercle (){
+        this(valor_def);
     }
     
 //</editor-fold>

@@ -41,6 +41,7 @@ public class Application {
         break;
         case 6:
         color();
+        break;
         case 7:
         colorRandom();
         break;
@@ -50,16 +51,23 @@ public class Application {
   private static void colorRandom(){
       Color co3 = Color.getRandom();
       System.out.printf("%d %d %d %n%n%n",co3.getRed(),co3.getGreen(),co3.getBlue()); 
+      System.out.printf("%co1 -> %s %n",co3.toHexString()); 
+      System.out.printf("%d %d %d %n%n%n",co3.toRGBString(true)); 
+      System.out.printf("%d %d %d %n%n%n",co3.toRGBString(false)); 
+      System.out.printf("%d %d %d %n%n%n",co3.toRGBString()); 
   }
   private static void color(){
       String colorR=null;
       Scanner entrada=new Scanner(System.in);
-      Color co1 = new Color (125,125,125);
+      Color co1 = new Color (125,125,255);
       System.out.printf("Color hexadecimal:");
       colorR = entrada.next();
       Color co2 = Color.fromHexString(colorR);
-      System.out.printf("r: %d g: %d b:%d %n", co2.getRed(),co2.getGreen(),co2.getBlue());
-        
+      System.out.printf("r: %d g: %d b:%d %n%n%n", co2.getRed(),co2.getGreen(),co2.getBlue());
+      System.out.printf("r: %d g: %d b:%d %n", co1.getRed(),co1.getGreen(),co1.getBlue());  
+      System.out.printf("co1 -> %s %n",co1.toHexString(true));
+      System.out.printf("co1 -> %s %n%n",co1.toHexString(false));
+      
   }
     
  private static void quadrat(){

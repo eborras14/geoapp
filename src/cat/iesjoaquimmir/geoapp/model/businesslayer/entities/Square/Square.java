@@ -1,7 +1,9 @@
 package cat.iesjoaquimmir.geoapp.model.businesslayer.entities.Square;
+import cat.iesjoaquimmir.geoapp.model.businesslayer.entities.Shape;
+import cat.iesjoaquimmir.geoapp.model.businesslayer.entities.Color.Color;
 
 
-public class Square  {
+public class Square extends Shape  {
     //<editor-fold defaultstate="collapsed" desc="Estat:Atributs">
     private double lado;
     public static final double valor_def=1.0;
@@ -19,17 +21,24 @@ public class Square  {
         }
         this.lado = lado;
     }
-
-    
+ 
 //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Constructores">
-    public Square (double lado){
+  
+//    public Square (){
+//        this(valor_def);
+//    }
+    public Square (double lado , Color backgroundColor , Color foregroundColor){
+        super(backgroundColor,foregroundColor);
         this.setLado(lado);
+       
     }
-    public Square (){
-        this(valor_def);
+      public Square (double lado){
+        this(lado,new Color(Color.MAX_VALUE,Color.MAX_VALUE,Color.MAX_VALUE),new Color(Color.MIN_VALUE,Color.MIN_VALUE,Color.MIN_VALUE));
+        
+        
+        
     }
-    
     
 //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Operacions d'objecte">
@@ -42,5 +51,7 @@ public class Square  {
  
 //</editor-fold>
 //</editor-fold>
+
+    
 
 } 

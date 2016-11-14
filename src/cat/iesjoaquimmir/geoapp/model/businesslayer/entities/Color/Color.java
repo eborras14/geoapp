@@ -80,6 +80,7 @@ public class Color {
       int numero = aleat.nextInt(256);
       return new Color(aleat.nextInt(256), aleat.nextInt(256) , aleat.nextInt(256));
     }
+  
 //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="metodes d'objecte">
     public String toHexString(boolean upper){

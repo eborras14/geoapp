@@ -5,10 +5,12 @@ import cat.iesjoaquimmir.geoapp.model.businesslayer.entities.rectangle.rectangle
 import cat.iesjoaquimmir.geoapp.model.businesslayer.entities.Cercle.Cercle;
 import cat.iesjoaquimmir.geoapp.model.businesslayer.entities.Esfera.Esfera;
 import cat.iesjoaquimmir.geoapp.model.businesslayer.entities.Color.Color;
+import java.io.PrintStream;
 import java.util.Scanner;
 public class Application {
     public static void main(String[] args) {
       int opcio;
+      
        do{
        
        Scanner entrada=new Scanner(System.in);
@@ -48,6 +50,7 @@ public class Application {
  }
        }while(opcio!=8);  
     }
+  
   private static void colorRandom(){
       Color co3 = Color.getRandom();
       System.out.printf("%d %d %d %n%n%n",co3.getRed(),co3.getGreen(),co3.getBlue()); 
@@ -73,23 +76,28 @@ public class Application {
  private static void quadrat(){
       double cuadrat=0;
       Scanner entrada=new Scanner(System.in);
-      
+      Color cb = Color.getRandom();
+      Color cf = Color.getRandom();
       System.out.printf("Has escullit el quadrat!!%n");
       System.out.printf("Digues el seu costat:");
-        
          cuadrat = entrada.nextDouble();
-         Square c1 = new Square (cuadrat);
-         Square c1_sobrecarrega = new Square ();
+         Square c1 = new Square (cuadrat,cb,cf);
+         Square c2 = new Square (cuadrat);
+         //Square c1_sobrecarrega = new Square ();
          
           System.out.printf("Area quadrat:%.2f%n",c1.getArea());
           System.out.printf("Perimetre quadrat:%.2f%n",c1.getPerimetre());
-           System.out.printf("<-----S O B R E C A R R E G A ---->%n");
-          System.out.printf("Area quadrat:%.2f%n",c1_sobrecarrega.getArea());
-          System.out.printf("Perimetre quadrat:%.2f%n",c1_sobrecarrega.getPerimetre());
+          System.out.printf("Color fons:%s %nColor vora: %s%n",c1.getBackgroundColor().toHexString(),c1.getForegroundColor().toHexString());
+          System.out.printf("<-----COLORS PER DEFECTE---->%n");
+          System.out.printf("Color fons:%s %nColor vora: %s%n",c2.getBackgroundColor().toHexString(),c2.getForegroundColor().toHexString());
+          System.out.printf("Comptador: %d%n",Square.getCounter());
+//          System.out.printf("Area quadrat:%.2f%n",c1_sobrecarrega.getArea());
+//          System.out.printf("Perimetre quadrat:%.2f%n",c1_sobrecarrega.getPerimetre());
  }
  private static void rectangle(){
      Scanner entrada=new Scanner(System.in);
-     
+     Color co33 = Color.getRandom();
+     Color co34 = Color.getRandom();
      double rectangleBase=0;
      double rectangleAltura=0;
      System.out.printf("Has escullit el Rectangle!!%n");
@@ -101,13 +109,16 @@ public class Application {
         do{
         rectangleAltura = entrada.nextDouble();
         }while(rectangleAltura<=0);
-        rectangle b1 = new rectangle (rectangleBase,rectangleAltura);
-            System.out.printf("Area rectangle:%.2f%n",b1.getArea());
-            System.out.printf("Perimetre rectangle:%.2f%n",b1.getPerimetre());
-            rectangle b1_s = new rectangle ();
-            System.out.printf("<-----S O B R E C A R R E G A ---->%n");
-            System.out.printf("Area quadrat:%.2f%n",b1_s.getArea());
-            System.out.printf("Perimetre quadrat:%.2f%n",b1_s.getPerimetre());
+        rectangle b1_c= new rectangle (rectangleBase,rectangleAltura,co33,co34);
+            System.out.printf("Area rectangle:%.2f%n",b1_c.getArea());
+            System.out.printf("Perimetre rectangle:%.2f%n",b1_c.getPerimetre());
+            System.out.printf("Color fons:%s %nColor vora: %s%n",b1_c.getBackgroundColor().toHexString(),b1_c.getForegroundColor().toHexString());
+//            rectangle b1_s = new rectangle ();
+            rectangle b2 = new rectangle (rectangleBase,rectangleAltura);
+            System.out.printf("<-----COLORS PER DEFECTE---->%n");
+            System.out.printf("Color fons:%s %nColor vora: %s%n",b2.getBackgroundColor().toHexString(),b2.getForegroundColor().toHexString());
+//            System.out.printf("Area quadrat:%.2f%n",b1_s.getArea());
+//            System.out.printf("Perimetre quadrat:%.2f%n",b1_s.getPerimetre());
  }
   private static void rectangle1(){
      Scanner entrada=new Scanner(System.in);
@@ -116,9 +127,10 @@ public class Application {
      double rectangleAltura=0;
      System.out.printf("Has escullit el Rectangle amb sobrecarrega!!%n");
         System.out.printf("Digues la seva base:");
-       
+       Color cb = Color.getRandom();
+      Color cf = Color.getRandom();
         rectangleBase = entrada.nextDouble();
-        rectangle b1 = new rectangle (rectangleBase);
+        rectangle b1 = new rectangle (rectangleBase,cb,cf);
        
             System.out.printf("Area rectangle:%.2f%n",b1.getArea());
             System.out.printf("Perimetre rectangle:%.2f%n",b1.getPerimetre());
@@ -129,10 +141,11 @@ public class Application {
    Scanner entrada=new Scanner(System.in);
    System.out.printf("Has escullit el Cercle!!%n");
         System.out.printf("Digues el seu radi:");
-        
+        Color cb = Color.getRandom();
+        Color cf = Color.getRandom();
         cercleRadi = entrada.nextDouble();
-        Cercle a1 = new Cercle (cercleRadi);
-        Cercle a1_s = new Cercle (cercleRadi);
+        Cercle a1 = new Cercle (cercleRadi,cb,cf);
+        Cercle a1_s = new Cercle (cercleRadi,cb,cf);
             System.out.printf("Area cercle:%.2f%n",a1.getArea());
             System.out.printf("Perimetre cercle:%.2f%n",a1.getPerimetre());
             
@@ -145,9 +158,10 @@ public class Application {
        Scanner entrada=new Scanner(System.in);
     System.out.printf("Has escullit l'Esfera!!%n");
         System.out.printf("Digues el seu radi:");
-       
+        Color cb = Color.getRandom();
+        Color cf = Color.getRandom();
         esferaRadi = entrada.nextDouble();
-        Esfera d1 = new Esfera (esferaRadi);
+        Esfera d1 = new Esfera (esferaRadi,cb,cf);
         Esfera d1_s = new Esfera ();
             System.out.printf("Area esfera:%.2f%n",d1.getArea());
             System.out.printf("Perimetre esfera:%.2f%n",d1.getPerimetre()); 

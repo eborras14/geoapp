@@ -1,7 +1,10 @@
 
 package cat.iesjoaquimmir.geoapp.model.businesslayer.entities.Esfera;
 
-public class Esfera {
+import cat.iesjoaquimmir.geoapp.model.businesslayer.entities.Color.Color;
+import cat.iesjoaquimmir.geoapp.model.businesslayer.entities.Shape;
+
+public class Esfera extends Shape{
        //<editor-fold defaultstate="collapsed" desc="Estat:Atributs">
     private double radio;
     public static final double valor_def=1.0;
@@ -27,11 +30,12 @@ public class Esfera {
     
 //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Constructores">
-    public Esfera (double radio){
+    public Esfera (double radio,Color backgroundColor, Color foregroundColor){
+        super(backgroundColor,foregroundColor);
         this.setRadio(radio);
     }
     public Esfera (){
-        this(valor_def);
+        this(valor_def,null,null);
     }
     
 //</editor-fold>

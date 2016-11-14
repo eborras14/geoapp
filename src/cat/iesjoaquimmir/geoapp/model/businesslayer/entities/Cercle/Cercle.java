@@ -1,8 +1,9 @@
 
 package cat.iesjoaquimmir.geoapp.model.businesslayer.entities.Cercle;
+import cat.iesjoaquimmir.geoapp.model.businesslayer.entities.Color.Color;
+import cat.iesjoaquimmir.geoapp.model.businesslayer.entities.Shape;
 
-
-public class Cercle {
+public class Cercle extends Shape {
        //<editor-fold defaultstate="collapsed" desc="Estat:Atributs">
     private double radio;
     public static final double valor_def=1.0;
@@ -21,14 +22,16 @@ public class Cercle {
         }
         this.radio = radio;
     }
+    
  
 //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Constructores">
-    public Cercle (double radio){
+    public Cercle (double radio,Color backgroundColor, Color foregroundColor){
+        super(backgroundColor,foregroundColor);
         this.setRadio(radio);
     }
-    public Cercle (){
-        this(valor_def);
+    public Cercle (Color backgroundColor, Color foregroundColor){
+        this(valor_def,backgroundColor,foregroundColor);
     }
     
 //</editor-fold>
